@@ -18,11 +18,11 @@ export default function BookingConfirm() {
     </View>
      <View style={styles.bookConfirmArea}>
         <View>
-           <AntDesign name="checkcircle" size={70} color="#00C13C" />
+           <AntDesign name="checkcircle" size={100} color="#00C13C" />
         </View> 
         <View>
            <Text style={styles.thanks}>THANK YOU</Text>
-           <Text style={{marginBottom:10}}>YOUR BOOKING HAS BEEN CONFIRMED</Text>
+           <Text style={{marginBottom:15}}>YOUR BOOKING HAS BEEN CONFIRMED</Text>
         </View>
         <View style={styles.bookBtn}>
           <BtnBook onPress={()=> handleSubmit()} style={styles.cusLogin} label="DOWONLOARD THS QUOTATION" bgColor="#00C13C" color="#fff"/>
@@ -35,9 +35,9 @@ export default function BookingConfirm() {
         </View>
 
     </View>
-      <View style={styles.quotationBottomArea}>
+      {/* <View style={styles.quotationBottomArea}>
             <BottomNavigation />
-     </View>
+     </View> */}
 </View>
   )
 }
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
         backgroundColor:"#fff"
        },
        bookingTopCotainer:{
-         flex:0.5,
+         flex:0.8,
          borderBottomRightRadius:40,
          borderBottomLeftRadius:40,
          overflow:"hidden"
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
            alignItems:"center",
        },
        hireTitle:{
-           fontSize:15,
+           fontSize:20,
            textAlign:"center",
            color:"#fff",
            
@@ -75,19 +75,21 @@ const styles = StyleSheet.create({
         }, 
         bookConfirmArea:{
             flex:1,
-            justifyContent:"center",
             alignItems:"center",
             textAlign:"center",
-            gap:15
+            marginTop:30
         },
         thanks:{
             fontSize:22,
             lineHeight:35,
+            textAlign:"center",
+            marginTop:15
           },
         bookBtn:{
-            marginTop:5
+            marginBottom:10,
+            marginTop:15
         },     
         gotoBtn:{
-            marginTop:20
+            marginTop:40
         }       
 })

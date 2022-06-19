@@ -1,7 +1,7 @@
 import { View, Text, TouchableOpacity } from 'react-native'
 import React from 'react'
 
-export default function BtnEquipment({ label, onPress,bgColor,color,width }) {
+export default function BtnEquipment({ label, onPress,bgColor,color='#fff', fontSize=15 }) {
   return (
     <TouchableOpacity
     style={{
@@ -17,7 +17,7 @@ export default function BtnEquipment({ label, onPress,bgColor,color,width }) {
     onPress={onPress}
   >
     <Text
-      style={{ fontSize: 15, color: color, textTransform: "uppercase" }}
+      style={{ fontSize, color, textTransform: "capitalize" }}
     >
       {label}
     </Text>

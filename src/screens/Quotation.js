@@ -26,7 +26,7 @@ export default function Quotation(props) {
   };
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.scrollView}>
+     
         <View style={styles.quotationTopCotainer}>
           <ImageBackground
             source={HeaderBgImage}
@@ -40,14 +40,15 @@ export default function Quotation(props) {
           </ImageBackground>
         </View>
         <View style={styles.quotationArea}>
-          <View>
+       
+          <View style={{width:"100%"}}>
             <Text style={styles.quotTitle}>Quotation</Text>
           </View>
           <View style={styles.equipment}>
-            <View>
+            <View style={{width:"50%"}}>
               <Text style={styles.equTitle}>Equipment-1</Text>
             </View>
-            <View>
+            <View style={{width:"50%",alignItems:"flex-end"}}>
               <AntDesign name="delete" size={30} color="red" />
             </View>
           </View>
@@ -107,66 +108,76 @@ export default function Quotation(props) {
               </TouchableOpacity>
             </Modal>
 
-            <View>
+
+            <ScrollView style={styles.scrollView}>
+            <View style={styles.rowItem}>
               <Text>Equipment Name</Text>
               <Text>Equipment Vally100 ton</Text>
             </View>
-            <View>
+            <View style={styles.rowItem}>
               <Text>Standered for 240/Month(equipment)</Text>
               <Text>1300000</Text>
             </View>
             <View style={styles.daysCount}>
-              <View>
+              <View style={styles.rowItem}>
                 <Text>Working Days</Text>
                 <Text>- 1 +</Text>
               </View>
-              <View>
+              <View style={styles.rowItem}>
                 <Text>Job Location</Text>
                 <Text>Chittogong</Text>
               </View>
             </View>
             <View style={styles.daysCount}>
-              <View>
+              <View style={styles.rowItem}>
                 <Text>Start Date</Text>
                 <Text>10/01/2022</Text>
               </View>
-              <View>
+              <View style={styles.rowItem}>
                 <Text>End Date</Text>
                 <Text>10/06/2022</Text>
               </View>
             </View>
-            <View>
+            <View style={styles.rowItem}>
               <Text>Total Amount for Equipment</Text>
               <Text>216666</Text>
             </View>
-            <View>
+            <View style={styles.rowItem}>
               <Text>Operation fooding cost</Text>
               <Text>3,000</Text>
             </View>
-            <View>
+            <View style={styles.rowItem}>
               <Text>Movement Lowbed Cost, insallation cost</Text>
               <Text> At Actual</Text>
             </View>
+
+         
+   
             <View style={styles.quotationButton}>
+             <View style={{width:"48%"}}>
               <BtnEquipment
-                onPress={() => handleSubmit()}
-                style={styles.cusLogin}
-                label="ADD MORE EQUIPMENT"
-                bgColor="#f6921e"
-                color="#fff"
-              />
+                  onPress={() => handleSubmit()}
+                  label="ADD MORE EQUIPMENT"
+                  bgColor="#f6921e"
+                  color="#fff"
+                  fontSize={10}
+                />
+             </View>
+            <View style={{width:"48%"}}>
               <BtnEquipment
-                onPress={() => setModalVisible(true)}
-                style={styles.cusLogin}
-                label="BOOK NOW"
-                bgColor="#07CC01"
-                color="#fff"
-              />
+                  onPress={() => setModalVisible(true)}
+                  fontSize={10}
+                  label="BOOK NOW"
+                  bgColor="#07CC01"
+                  color="#fff"
+                />
             </View>
+            </View>
+            </ScrollView>
           </View>
         </View>
-        <BottomNavigation />
-      </ScrollView>
+        {/* <BottomNavigation /> */}
+   
     </SafeAreaView>
   );
 }
@@ -183,7 +194,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   quotationTopCotainer: {
-    flex: 0.5,
+    flex: 0.6,
     borderBottomRightRadius: 40,
     borderBottomLeftRadius: 40,
     overflow: "hidden",
@@ -198,7 +209,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   hireTitle: {
-    fontSize: 15,
+    fontSize: 20,
     textAlign: "center",
     color: "#fff",
   },
@@ -213,6 +224,9 @@ const styles = StyleSheet.create({
   quotTitle: {
     fontSize: 24,
     color: "#f6921e",
+    textAlign:"center",
+    width:"100%",
+    marginTop:15
   },
   equipment: {
     flexDirection: "row",
@@ -242,9 +256,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   quotationButton: {
-    width: "100%",
+    flex:1,
     flexDirection: "row",
     justifyContent: "space-between",
+    marginTop:15
   },
   centeredView: {
     flex: 1,
@@ -279,5 +294,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 22,
     right: 25,
+  },
+  rowItem:{
+    marginTop:20
   },
 });

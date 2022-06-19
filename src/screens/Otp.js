@@ -4,10 +4,27 @@ import HeaderBgImage from "../images/loginBg.jpg";
 import loginIcon from "../images/loginIcon.png";
 import Button from '../components/button/Button';
 
+
+import { useDispatch } from "react-redux";
+import { setToken } from "../redux/slices/authSlice"; 
+
+
 export default function Otp(props) {
-    const handleSubmit = ()=>{
-        props.navigation.navigate('HireNow');  
-     }
+
+  const dispatch = useDispatch();
+
+  const handleSubmit = ()=>{ 
+    setAccessToken({token:'hello'})
+    // props.navigation.navigate('HireNow');  
+  }
+
+
+  //set access token on storage
+  const setAccessToken = (response) => {
+    dispatch(setToken(response));
+  };
+
+
   return (
     <View style={styles.container}>
     <View style={styles.otpTopCotainer}>
@@ -19,21 +36,21 @@ export default function Otp(props) {
        </ImageBackground>
     </View>
     <View style={styles.otpBottomCotainer}>
-           <View>
+           <View style={styles.otpBottomItem}>
               <Image style={styles.loginIcon} source={loginIcon} />
            </View>
-           <View>
+           <View style={styles.otpBottomItem}>
              <Text style={styles.otpCodeTitle}>VERIFY YOUR OTP</Text>
            </View>
-           <View>
+           <View style={styles.otpBottomItem}>
               <TextInput style={styles.otpInput}/>
            </View>
-           <View style={{flex:0.2,flexDirection:"row"}}>
+           <View style={{flex:0.2,flexDirection:"row",marginTop:30}}>
              <Text style={styles.otpCodeTitle}>disn't get OTP yet, </Text>
              <Text  style={styles.otpCodecolor}>RESEND OTP</Text>
            </View>
-           <View>
-              <Button onPress={()=> handleSubmit()} style={styles.cusLogin} label="LOGIN" bgColor="#f6921e" color="#fff" onPress={handleSubmit} />
+           <View style={styles.otpBottomItem}>
+              <Button onPress={()=> handleSubmit()}  label="LOGIN" bgColor="#f6921e" color="#fff"/>
            </View>
     </View>
 </View>
@@ -46,7 +63,7 @@ const styles = StyleSheet.create({
      flex:1,
     },
     otpTopCotainer:{
-      flex:0.5,
+      flex:0.8,
       borderBottomRightRadius:40,
       borderBottomLeftRadius:40,
       overflow:"hidden"
@@ -55,8 +72,10 @@ const styles = StyleSheet.create({
       flex:1,
       alignItems:"center",
       justifyContent:"center",
-      gap:30,
-      paddingBottom:100
+      paddingBottom:50
+    },
+    otpBottomItem:{
+      marginTop:30,
     },
     titleContainer:{
         flex:1,

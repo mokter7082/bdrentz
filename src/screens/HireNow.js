@@ -13,14 +13,14 @@ import HeaderBgImage from "../images/loginBg.jpg";
 import { AntDesign as Icon, Entypo, Fontisto } from "@expo/vector-icons";
 import Button from "../components/button/Button";
 import BottomNavigation from "../components/component/Bottom-navigation";
+import BtnEquipment from "../components/button/Btn-equipment";
 
 export default function HireNow(props) {
   const handleSubmit = () => {
     props.navigation.navigate("Quotation");
   };
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.scrollView}>
+    <View style={styles.container}>
         <View style={styles.hireTopCotainer}>
           <ImageBackground
             source={HeaderBgImage}
@@ -34,9 +34,11 @@ export default function HireNow(props) {
           </ImageBackground>
         </View>
         <View style={styles.hireMiddleCotainer}>
+        <ScrollView style={styles.scrollView}>
           <View>
             <Text style={styles.hireTitle}>HIRE NOW</Text>
           </View>
+        
           <View style={styles.hireInputContainer}>
             <Icon
               name="search1"
@@ -82,7 +84,7 @@ export default function HireNow(props) {
             />
           </View>
           <View style={styles.bookBtnContainer}>
-            <Button
+            <BtnEquipment
               onPress={() => handleSubmit()}
               style={styles.bookButton}
               label="BOOK NOW"
@@ -90,22 +92,27 @@ export default function HireNow(props) {
               color="#fff"
             />
           </View>
+          </ScrollView>
         </View>
-        <BottomNavigation />
-      </ScrollView>
-    </SafeAreaView>
+        {/* <View style={styles.hireBottomArea}>
+           <BottomNavigation />
+        </View> */}
+      
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  scrollView: {
     backgroundColor: "#f6921e",
   },
+  scrollView: {
+    width:"100%",
+    marginBottom:50
+  },
   hireTopCotainer: {
-    flex: 0.5,
+    flex: 0.6,
     borderBottomRightRadius: 40,
     borderBottomLeftRadius: 40,
     overflow: "hidden",
@@ -114,7 +121,10 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     marginTop: 30,
-    gap: 25,
+    width:"100%",
+    marginLeft:20,
+    marginRight:20,
+    width:"90%"
   },
   titleContainer: {
     flex: 1,
@@ -122,26 +132,27 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   hireTitle: {
-    fontSize: 15,
+    fontSize: 20,
     textAlign: "center",
     color: "#fff",
-    // paddingTop:10,
-    // paddingBottom:10
   },
   hireInputContainer: {
     flexDirection: "row",
     backgroundColor: "#fff",
-    borderRadius: 10,
+    // borderRadius: 10,
+    width:"100%",
+    marginTop:25,
   },
   hireInput: {
-    width: 288,
-    height: 40,
+    width: "100%",
+    height: 55,
     paddingLeft: 10,
     fontSize: 15,
     color: "gray",
+    borderRadius:10
   },
   inputIcon: {
-    paddingTop: 7,
+    paddingTop: 13,
     paddingLeft: 10,
     paddingRight: 10,
     fontWeight: "bold",
@@ -153,6 +164,8 @@ const styles = StyleSheet.create({
     borderColor: "#fff",
     borderWidth: 2,
     borderRadius: 10,
+    width:200,
+    marginLeft:"25%"
   },
   bottomLogo: {
     width: 50,

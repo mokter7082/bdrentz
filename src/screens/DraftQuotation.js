@@ -12,6 +12,7 @@ import HeaderBgImage from "../images/loginBg.jpg";
 import { AntDesign } from "@expo/vector-icons";
 import BottomNavigation from "../components/component/Bottom-navigation";
 import BtnEquipment from "../components/button/Btn-equipment";
+import Checkbox from 'expo-checkbox';
 export default function DraftQuotation(props) {
   const handleSubmit = () => {
     props.navigation.navigate("BookingConfirm");
@@ -30,7 +31,9 @@ export default function DraftQuotation(props) {
           </View>
         </ImageBackground>
       </View>
+     
       <View style={styles.draftQuotationArea}>
+      <ScrollView style={{width:"100%"}}>
         <View>
           <Text style={styles.draftTitle}>Draft Quotation</Text>
         </View>
@@ -38,6 +41,7 @@ export default function DraftQuotation(props) {
           <Text>To</Text>
           <Text>Sahadat Hossain</Text>
         </View>
+         
         <View style={styles.dateArea}>
           <Text>Date: 12th May, 2022</Text>
           <Text>Order_id: 12343553</Text>
@@ -73,8 +77,8 @@ export default function DraftQuotation(props) {
           </Text>
         </View>
         <View style={styles.checkboxContainer}>
-          <CheckBox />
-          <Text>I agree to all Trams and Condition</Text>
+          <Checkbox />
+             <Text> I agree to all Trams and Condition</Text>
         </View>
         <View>
           <BtnEquipment
@@ -85,10 +89,12 @@ export default function DraftQuotation(props) {
             color="#fff"
           />
         </View>
+        </ScrollView>
       </View>
+{/*       
       <View style={styles.quotationBottomArea}>
         <BottomNavigation />
-      </View>
+      </View> */}
     </View>
   );
 }
@@ -99,7 +105,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#F7F7F7",
   },
   quotationTopCotainer: {
-    flex: 0.5,
+    flex: 0.6,
     borderBottomRightRadius: 40,
     borderBottomLeftRadius: 40,
     overflow: "hidden",
@@ -118,10 +124,10 @@ const styles = StyleSheet.create({
   draftQuotationArea: {
     flex: 1,
     alignItems: "center",
-    gap: 10,
     paddingLeft: 15,
     paddingRight: 15,
     paddingBottom: 80,
+    width:"100%"
   },
   draftTitle: {
     fontSize: 25,
@@ -133,6 +139,7 @@ const styles = StyleSheet.create({
   divLeft: {
     width: "100%",
     textAlign: "left",
+    marginTop:15
   },
   dateArea: {
     width: "100%",
@@ -166,6 +173,7 @@ const styles = StyleSheet.create({
   checkboxContainer: {
     width: "100%",
     flexDirection: "row",
-    gap: 4,
+    marginTop:15,
+    marginBottom:15,
   },
 });

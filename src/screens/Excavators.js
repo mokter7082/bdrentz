@@ -1,12 +1,16 @@
-import { View, Text, ImageBackground,Image, StyleSheet } from 'react-native'
+import { View, Text, ImageBackground,Image, StyleSheet, TouchableOpacity } from 'react-native'
 import React from 'react'
 import HeaderBgImage from "../images/loginBg.jpg";
 import BottomNavigation from '../components/component/Bottom-navigation';
 import loginIcon from "../images/loginIcon.png";
 import { AntDesign } from '@expo/vector-icons'; 
+import { ScrollView } from 'react-native-gesture-handler';
 
 
-export default function Excavator() {
+export default function Excavator(props) {
+  const handleSubmit = () => {
+    props.navigation.navigate("Excavator");
+  }
   return (
     <View style={styles.container}>
     <View style={styles.excavatorTopCotainer}>
@@ -23,7 +27,8 @@ export default function Excavator() {
        </ImageBackground>
     </View>
      <View style={styles.exvatorMainArea}>
-        <View style={styles.cardArea}>
+      <ScrollView>
+        <TouchableOpacity style={styles.cardArea} onPress={()=>handleSubmit()}>
            <View>
             <Image style={styles.productImage}
                     source={{
@@ -44,10 +49,10 @@ export default function Excavator() {
                 <AntDesign name="star" size={24} color="gray" />
               </View>
            </View>
-        </View>
+        </TouchableOpacity>
         <View style={styles.cardBorder}></View>
 
-        <View style={styles.cardArea}>
+        <TouchableOpacity style={styles.cardArea} onPress={()=>handleSubmit()}>
            <View>
             <Image style={styles.productImage}
                     source={{
@@ -68,10 +73,10 @@ export default function Excavator() {
                 <AntDesign name="star" size={24} color="gray" />
               </View>
            </View>
-        </View>
+        </TouchableOpacity>
         <View style={styles.cardBorder}></View>
 
-        <View style={styles.cardArea}>
+        <TouchableOpacity style={styles.cardArea} onPress={()=>handleSubmit()}>
            <View>
             <Image style={styles.productImage}
                     source={{
@@ -92,10 +97,10 @@ export default function Excavator() {
                 <AntDesign name="star" size={24} color="gray" />
               </View>
            </View>
-        </View>
+        </TouchableOpacity>
         <View style={styles.cardBorder}></View>
 
-        <View style={styles.cardArea}>
+        <TouchableOpacity style={styles.cardArea} onPress={()=>handleSubmit()}>
            <View>
             <Image style={styles.productImage}
                     source={{
@@ -116,12 +121,39 @@ export default function Excavator() {
                 <AntDesign name="star" size={24} color="gray" />
               </View>
            </View>
-        </View>
+        </TouchableOpacity>
         <View style={styles.cardBorder}></View>
+
+        <TouchableOpacity style={styles.cardArea} onPress={()=>handleSubmit()}>
+           <View>
+            <Image style={styles.productImage}
+                    source={{
+                    uri: 'https://bdrentz.com/media/photos/Admin/2/2_5.jpeg',
+                    }}/>  
+           </View>
+           <View style={styles.productArea}>
+              <View>
+                    <Text style={styles.pTitle}>Excavator: Bucket Size 1.3</Text>  
+                    <Text style={styles.pTitle}>Brand Name: Brand Name</Text>  
+                    <Text style={styles.pTitle}>Model Year</Text>  
+              </View>
+              <View style={styles.rating}>
+                <AntDesign name="star" size={24} color="#f6921e" />
+                <AntDesign name="star" size={24} color="#f6921e" />
+                <AntDesign name="star" size={24} color="#f6921e" />
+                <AntDesign name="star" size={24} color="#f6921e" />
+                <AntDesign name="star" size={24} color="gray" />
+              </View>
+           </View>
+        </TouchableOpacity>
+        <View style={styles.cardBorder}></View>
+
+
+        </ScrollView>
     </View>
-      <View style={styles.quotationBottomArea}>
+      {/* <View style={styles.quotationBottomArea}>
             <BottomNavigation />
-     </View>
+     </View> */}
 </View>
   )
 }
@@ -133,7 +165,7 @@ const styles = StyleSheet.create({
         backgroundColor:"#fff"
        },
        excavatorTopCotainer:{
-         flex:0.8,
+         flex:0.6,
          borderBottomRightRadius:40,
          borderBottomLeftRadius:40,
          overflow:"hidden"

@@ -72,9 +72,9 @@ export default function Excavator() {
           <Text style={styles.pTitle}>Already Working on Project</Text>
         </View>
     </View>
-      <View style={styles.quotationBottomArea}>
+      {/* <View style={styles.quotationBottomArea}>
             <BottomNavigation />
-     </View>
+     </View> */}
 </View>
   )
 }
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
         backgroundColor:"#fff"
        },
        excavatorTopCotainer:{
-         flex:0.8,
+         flex:0.6,
          borderBottomRightRadius:40,
          borderBottomLeftRadius:40,
          overflow:"hidden"

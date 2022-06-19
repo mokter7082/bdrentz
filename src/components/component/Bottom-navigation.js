@@ -22,7 +22,7 @@ export default function BottomNavigation() {
 
 const styles = StyleSheet.create({
   hireBottomArea: {
-    position: "fixed",
+    // position: "fixed",
     bottom: 0,
     width: "100%",
     paddingBottom: 10,

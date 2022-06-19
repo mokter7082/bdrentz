@@ -28,7 +28,7 @@ const DashboardScreen = () => {
         backgroundColor: "#F5FCFF",
       }}
     >
-      <Text>Wellcome to Dashboard {authInfo?.userInfo?.name} </Text>
+      <Text>**** Wellcome to Dashboard {authInfo?.userInfo?.name} </Text>
       <TouchableOpacity
         style={{
           backgroundColor: "red",

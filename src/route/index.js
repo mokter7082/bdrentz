@@ -6,8 +6,10 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setSignIn } from "../redux/slices/authSlice";
 
-import AppNavigator from "./app-navigator";
+import {AppNavigator} from "./app-navigator";
 import AuthNavigator from "./auth-navigator";
+import BottomTabNavigator from "./TabNavigator";
+import DrawerNavigator from "./DrawerNavigator";
 
 const AppRoute = () => {
   const dispatch = useDispatch();
@@ -48,12 +50,18 @@ const AppRoute = () => {
   };
 
   React.useEffect(() => {
-    checkAuthentication();
+    // checkAuthentication();
+    if(authInfo.token && authInfo.token !=''){
+      setIsLoggedIn(true)
+    }
   }, [authInfo.token]);
+
+
+  console.log(authInfo.token)
 
   return (
     <NavigationContainer>
-      {isLoggedIn ? <AppNavigator /> : <AuthNavigator />}
+      {isLoggedIn ? <DrawerNavigator /> : <AuthNavigator />} 
     </NavigationContainer>
   );
 };
